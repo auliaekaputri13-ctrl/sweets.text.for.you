@@ -1,0 +1,611 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Parisienne&display=swap');
+
+/* ==============================
+   01. RESET
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink-bg: #fbe5ee;
+    --pink-light: #fffafd;
+    --pink-soft: #f8dce7;
+    --pink-medium: #e8a6bf;
+    --pink-dark: #c27b98;
+    --pink-text: #a8798d;
+    --pink-border: #efc1d2;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--pink-text);
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            #fffafd,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            #f3c5d7,
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #fff2f7,
+            #f8dce8,
+            #fceaf1
+        );
+}
+
+/* ==============================
+   02. PAGE
+============================== */
+
+.page {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 65px 18px 30px;
+
+    position: relative;
+    z-index: 1;
+}
+
+/* ==============================
+   03. BYLINE
+============================== */
+
+.byline {
+    font-family: 'Parisienne', cursive;
+    font-size: 25px;
+    color: var(--pink-dark);
+
+    margin-bottom: 22px;
+
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.top-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #bd879e;
+
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+/* ==============================
+   04. MAIN CARD
+============================== */
+
+.card {
+    width: 100%;
+    max-width: 440px;
+
+    position: relative;
+
+    padding: 30px 22px 25px;
+
+    text-align: center;
+
+    background: rgba(255, 251, 253, .96);
+
+    border: 1px solid var(--pink-border);
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 55px rgba(183, 113, 145, .15),
+        inset 0 0 15px #ffffff;
+
+    animation: cardAppear 1s ease both;
+}
+
+.card::before {
+    content: "";
+
+    position: absolute;
+    inset: 10px;
+
+    border: 1px dashed #eec0d1;
+    border-radius: 22px;
+
+    pointer-events: none;
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==============================
+   05. RIBBON
+============================== */
+
+.corner-ribbon {
+    position: absolute;
+    top: 22px;
+    right: 27px;
+
+    font-size: 42px;
+
+    transform: rotate(12deg);
+    z-index: 2;
+
+    animation: ribbonFloat 3s ease-in-out infinite;
+}
+
+@keyframes ribbonFloat {
+    0%, 100% {
+        transform: rotate(12deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(5deg) translateY(-5px);
+    }
+}
+
+/* ==============================
+   06. TEDDY DECORATION
+============================== */
+
+.decoration {
+    height: 195px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.teddy {
+    font-size: 105px;
+
+    filter:
+        drop-shadow(0 8px 8px #c38ca344);
+
+    animation: teddyFloat 3s ease-in-out infinite;
+
+    z-index: 1;
+}
+
+@keyframes teddyFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(3deg);
+    }
+}
+
+.decor {
+    position: absolute;
+    color: #df9ab4;
+}
+
+.decor-one {
+    top: 20px;
+    left: 16%;
+    font-size: 30px;
+    transform: rotate(-20deg);
+}
+
+.decor-two {
+    top: 45px;
+    right: 17%;
+    font-size: 32px;
+}
+
+.decor-three {
+    bottom: 15px;
+    left: 23%;
+    font-size: 30px;
+}
+
+.decor-four {
+    bottom: 35px;
+    right: 20%;
+    font-size: 23px;
+}
+
+/* ==============================
+   07. TEXT
+============================== */
+
+.subtitle {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #c28ba2;
+
+    margin-bottom: 16px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(43px, 11vw, 58px);
+    font-weight: 500;
+    line-height: 1.2;
+
+    color: #b97893;
+}
+
+h1 span {
+    display: block;
+
+    font-style: italic;
+    color: #df98b3;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 13px;
+    margin: 25px 0;
+
+    color: #d88fab;
+    font-size: 20px;
+}
+
+.divider span {
+    width: 65px;
+    height: 1px;
+    background: #e8b8ca;
+}
+
+/* ==============================
+   08. MESSAGE
+============================== */
+
+.message {
+    font-size: 13px;
+    line-height: 2;
+
+    color: #a77e91;
+}
+
+.message p + p {
+    margin-top: 25px;
+}
+
+.mini-decoration {
+    margin-top: 22px;
+
+    font-size: 25px;
+    color: #d995af;
+
+    letter-spacing: 3px;
+}
+
+/* ==============================
+   09. MAIN BUTTON
+============================== */
+
+#loveButton {
+    display: block;
+
+    width: 88%;
+    margin: 30px auto 0;
+
+    padding: 19px 15px;
+
+    border: 1px solid #e5a5bd;
+    border-radius: 50px;
+
+    background: linear-gradient(
+        120deg,
+        #efb8cd,
+        #d88eaa
+    );
+
+    color: white;
+
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    box-shadow:
+        0 9px 22px #d18ba755;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+#loveButton span {
+    font-size: 17px;
+    margin-left: 9px;
+}
+
+#loveButton:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 13px 27px #d18ba777;
+}
+
+#loveButton:active {
+    transform: scale(.96);
+}
+
+/* ==============================
+   10. FOOTER
+============================== */
+
+.bottom-message {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 13px;
+
+    color: #bd879e;
+
+    margin-top: 25px;
+}
+
+.card-footer {
+    border-top: 1px solid #efd0dc;
+
+    margin-top: 28px;
+    padding-top: 19px;
+
+    font-size: 9px;
+    letter-spacing: 3px;
+
+    color: #c28ba2;
+}
+
+.outside-text {
+    text-align: center;
+
+    font-size: 9px;
+    letter-spacing: 2px;
+
+    color: #b9859a;
+
+    margin-top: 25px;
+}
+
+/* ==============================
+   11. FLOATING HEARTS
+============================== */
+
+.hearts-container {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+    pointer-events: none;
+
+    z-index: 5;
+}
+
+.heart {
+    position: absolute;
+    bottom: -35px;
+
+    color: #d98eaa;
+
+    animation: floatHeart linear forwards;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* ==============================
+   12. POPUP
+============================== */
+
+.popup {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background: rgba(102, 61, 79, .35);
+    backdrop-filter: blur(7px);
+
+    z-index: 20;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .35s ease;
+}
+
+.popup.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-card {
+    width: 100%;
+    max-width: 340px;
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: #fffafd;
+    border: 1px solid #efc1d2;
+    border-radius: 25px;
+
+    box-shadow: 0 20px 60px #75465c33;
+
+    position: relative;
+
+    transform: scale(.8);
+    transition: .4s ease;
+}
+
+.popup.show .popup-card {
+    transform: scale(1);
+}
+
+.popup-ribbon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.popup-bear {
+    font-size: 65px;
+    margin-bottom: 12px;
+}
+
+.popup-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 29px;
+    font-weight: 500;
+
+    color: #bd7d98;
+    margin-bottom: 15px;
+}
+
+.popup-card p {
+    font-size: 12px;
+    line-height: 1.9;
+    color: #a77e91;
+}
+
+.popup-love {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+
+    font-size: 15px !important;
+    color: #d68eaa !important;
+
+    margin-top: 18px;
+}
+
+#closePopup {
+    margin-top: 25px;
+
+    padding: 13px 20px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: #df9eb7;
+    color: white;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
+
+/* ==============================
+   13. MOBILE
+============================== */
+
+@media (max-width: 480px) {
+
+    .page {
+        padding: 55px 15px 25px;
+    }
+
+    .card {
+        padding: 25px 17px 22px;
+        border-radius: 27px;
+    }
+
+    .decoration {
+        height: 180px;
+    }
+
+    .teddy {
+        font-size: 95px;
+    }
+
+    h1 {
+        font-size: 46px;
+    }
+
+    .message {
+        font-size: 12px;
+    }
+
+    #loveButton {
+        width: 92%;
+        padding: 17px 10px;
+    }
+
+}
+
+@media (max-width: 350px) {
+
+    .teddy {
+        font-size: 85px;
+    }
+
+    .decoration {
+        height: 165px;
+    }
+
+    h1 {
+        font-size: 39px;
+    }
+
+    .message {
+        font-size: 11px;
+    }
+
+}
+
+/* ==============================
+   14. ACCESSIBILITY
+============================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+
+}
